@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 let socket; // Keep socket reference
 
 const AuthProvider = ({ children }) => {
-  const serverUrl = "http://localhost:8001";
+  const serverUrl = "https://whatsapp-backend-5uxx.onrender.com";
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
