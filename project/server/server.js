@@ -18,10 +18,20 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin:"https://saldapaldwde.netlify.app",
-  "https://689d9058debb089e4469e20e--saldapaldwde.netlify.app"
-  credentials: true,
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "https://saldapaldwde.netlify.app",
+      "https://689d9058debb089e4469e20e--saldapaldwde.netlify.app"
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
 }));
+
 
 // Define API routes
 app.use("/api/auth", authRouter);
