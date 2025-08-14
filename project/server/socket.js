@@ -6,7 +6,7 @@ const userSocketMap = {};
 export function initSocket(server) {
   io = new Server(server, {
     cors: {
-      origin: "http://localhost:5174", // match your frontend
+  origin: "https://saldapaldwde.netlify.app",
       credentials: true,
     },
   });
